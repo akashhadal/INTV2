@@ -30,14 +30,14 @@ const Stopwatch = () => {
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
-    return `${minutes}:${seconds}`;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
   };
 
   return (
     <div className="stopwatch" style={{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
       <h1>Stopwatch</h1>
-      <p>{formatTime(time)}</p>
+      <p>Time: {formatTime(time)}</p>
       <div className="controls" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
         {!isActive ? (
           <button onClick={handleStart}>Start</button>
